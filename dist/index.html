@@ -99,6 +99,18 @@
       .why-item { grid-template-columns: 16px 1fr !important; column-gap: 4px !important; }
       .why-number { margin: 0; }
     </style>
+    <style id="odisseia-single-offer">
+      .single-offer-card { width: min(680px, 100%); margin: 0 auto; }
+      .single-offer-card h3 { max-width: 520px; }
+      .single-offer-card .price-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .vip-bonus-section .section-title p { display: block !important; color: #c2cecf; }
+      .vip-free-badge { display: inline-flex; align-items: center; margin: 14px 16px 0; padding: 5px 8px; border-radius: 999px; background: #fff0e7; color: var(--orange); font-size: .61rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .vip-bonus-card p { display: block !important; margin: 10px 16px 0; color: var(--muted); font-size: .78rem; line-height: 1.42; }
+      @media (max-width: 600px) {
+        .single-offer-card .price-list { grid-template-columns: 1fr; }
+        .vip-free-badge { margin-top: 12px; }
+      }
+    </style>
   </head>
   <body>
     <div class="topbar">Pagamento único · acesso conforme as condições informadas na compra · sem mensalidades</div>
@@ -266,6 +278,84 @@
       const heroHeadline = document.querySelector('.hero h1');
       if (heroHeadline) heroHeadline.innerHTML = 'Odisseia: <span>+24 Ferramentas para Motociclistas em um Só Lugar!</span>';
       document.querySelector('.hero > .eyebrow')?.remove();
+    </script>
+    <script>
+      // Oferta única: os links reais de checkout podem ser configurados aqui.
+      const ODISSEIA_CHECKOUT_URL = '';
+      const vipOffer = document.querySelector('#vip');
+      if (vipOffer) {
+        vipOffer.innerHTML = `
+          <div class="container">
+            <div class="section-title">
+              <span class="eyebrow">Bônus gratuitos</span>
+              <h2>6 bônus gratuitos inclusos.</h2>
+              <p>Recursos extras incluídos na compra do Odisseia, sem valores separados.</p>
+            </div>
+            <div class="vip-bonus-grid">
+              <article class="vip-bonus-card"><img src="assets/alertas-encontros.png" alt="Demonstração de alertas e notificações de encontros" loading="lazy"><span class="vip-free-badge">Grátis — incluso na compra</span><div class="icon"><i data-lucide="bell-ring"></i></div><h3>BÔNUS 01 — Alertas e notificações de encontros</h3><p>Receba alertas de eventos e encontros de motociclistas de acordo com suas preferências.</p></article>
+              <article class="vip-bonus-card"><img src="assets/planejamento-paradas.png" alt="Demonstração do planejamento de paradas" loading="lazy"><span class="vip-free-badge">Grátis — incluso na compra</span><div class="icon"><i data-lucide="map-pin-plus"></i></div><h3>BÔNUS 02 — Planejamento de paradas</h3><p>Organize paradas para abastecimento, alimentação e descanso durante suas viagens.</p></article>
+              <article class="vip-bonus-card"><img src="assets/lembretes-manutencao.png" alt="Demonstração dos lembretes de manutenção" loading="lazy"><span class="vip-free-badge">Grátis — incluso na compra</span><div class="icon"><i data-lucide="wrench"></i></div><h3>BÔNUS 03 — Lembretes de manutenção</h3><p>Organize lembretes de troca de óleo, revisões e outros cuidados com sua motocicleta.</p></article>
+              <article class="vip-bonus-card"><img src="assets/relatorios-diario.png" alt="Demonstração dos relatórios avançados e diário de viagens" loading="lazy"><span class="vip-free-badge">Grátis — incluso na compra</span><div class="icon"><i data-lucide="file-chart-column"></i></div><h3>BÔNUS 04 — Relatórios avançados e diário de viagens</h3><p>Acompanhe seus gastos e registre suas aventuras.</p></article>
+              <article class="vip-bonus-card"><img src="assets/exportacao-relatorios.png" alt="Demonstração da exportação de relatórios" loading="lazy"><span class="vip-free-badge">Grátis — incluso na compra</span><div class="icon"><i data-lucide="folder-output"></i></div><h3>BÔNUS 05 — Exportação de relatórios</h3><p>Exporte informações de viagens, manutenções e despesas.</p></article>
+              <article class="vip-bonus-card"><img src="assets/pedagios-despesas.png" alt="Demonstração do controle de pedágios e despesas extras" loading="lazy"><span class="vip-free-badge">Grátis — incluso na compra</span><div class="icon"><i data-lucide="receipt-text"></i></div><h3>BÔNUS 06 — Controle de pedágios e despesas extras</h3><p>Registre pedágios, alimentação, hospedagem e outros gastos da estrada.</p></article>
+            </div>
+          </div>`;
+      }
+
+      const pricing = document.querySelector('#planos');
+      if (pricing) {
+        pricing.querySelector('.section-title .eyebrow').textContent = 'Oferta única';
+        pricing.querySelector('.section-title h2').textContent = 'Leve o Odisseia completo por apenas R$ 27,90!';
+        pricing.querySelector('.section-title p')?.remove();
+        pricing.querySelector('.pricing-grid').innerHTML = `
+          <article class="price-card premium single-offer-card">
+            <span class="price-badge">Odisseia completo</span>
+            <h3>ODISSEIA — +24 FERRAMENTAS PARA MOTOCICLISTAS</h3>
+            <div class="price">R$ 27<small>,90</small></div>
+            <p class="pay-note">Pagamento único. Sem mensalidades.</p>
+            <ul class="price-list">
+              <li><i data-lucide="check" width="15"></i>Acesso às 24 ferramentas</li>
+              <li><i data-lucide="check" width="15"></i>6 bônus gratuitos inclusos</li>
+              <li><i data-lucide="check" width="15"></i>Pagamento único</li>
+              <li><i data-lucide="check" width="15"></i>Sem mensalidades</li>
+            </ul>
+            <button class="btn" type="button" data-buy="single">QUERO MEU ODISSEIA POR R$ 27,90</button>
+            <p class="price-foot">Tudo incluído em uma única compra</p>
+          </article>`;
+        pricing.querySelector('.full-features')?.remove();
+      }
+
+      document.querySelector('#upgrade-modal')?.remove();
+      document.querySelector('.final')?.remove();
+      document.querySelectorAll('[data-buy]').forEach((button) => {
+        button.onclick = () => {
+          track('single_offer_click');
+          if (ODISSEIA_CHECKOUT_URL) window.location.assign(ODISSEIA_CHECKOUT_URL);
+          else showToast('Checkout em demonstração: configure o link para ativar este botão.');
+        };
+      });
+
+      const faqItems = document.querySelectorAll('#faq .faq details');
+      if (faqItems[0]) faqItems[0].querySelector('p').textContent = 'Não. O Odisseia tem pagamento único de R$ 27,90 e não possui mensalidades.';
+      if (faqItems[2]) {
+        faqItems[2].querySelector('summary').firstChild.textContent = 'O que está incluído na compra?';
+        faqItems[2].querySelector('p').textContent = 'Você recebe acesso às 24 ferramentas do Odisseia e aos 6 bônus gratuitos inclusos.';
+      }
+      document.querySelectorAll('#por-dentro .demo-tab').forEach((tab) => {
+        if (['Premium', 'Completo'].includes(tab.textContent.trim())) tab.textContent = 'Recursos avançados';
+      });
+      const heroCta = document.querySelector('.hero-actions .btn');
+      if (heroCta?.firstChild) heroCta.firstChild.textContent = 'Quero conhecer a oferta ';
+      document.querySelectorAll('#encontra h3, #encontra p').forEach((node) => {
+        node.textContent = node.textContent.replaceAll('Ferramentas Premium', '24 ferramentas').replaceAll('Premium', 'Odisseia');
+      });
+      document.querySelectorAll('.why-item').forEach((item) => {
+        if (item.querySelector('.why-number')?.textContent === '04') {
+          item.querySelector('h3').textContent = '24 ferramentas em um só lugar';
+          item.querySelector('p').textContent = 'Tudo em uma experiência única para organizar seus rolês e viagens.';
+        }
+      });
+      if (window.lucide) lucide.createIcons();
     </script>
   </body>
 </html>
