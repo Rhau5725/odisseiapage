@@ -166,6 +166,10 @@
       const audioPrompt = document.querySelector('[data-video-audio]');
       if (demoVideo) {
         const hidePrompt = () => audioPrompt?.classList.add('is-hidden');
+        const showPausedPrompt = () => {
+          audioPrompt.innerHTML = '⏸ PAUSADO<br /><small>TOQUE PARA CONTINUAR</small>';
+          audioPrompt.classList.remove('is-hidden');
+        };
         const restartWithAudio = () => {
           demoVideo.currentTime = 0;
           demoVideo.muted = false;
@@ -173,11 +177,23 @@
           hidePrompt();
           demoVideo.play().catch(() => {});
         };
+        const continueVideo = () => {
+          hidePrompt();
+          demoVideo.play().catch(() => {});
+        };
         audioPrompt?.addEventListener('click', (event) => {
           event.stopPropagation();
-          restartWithAudio();
+          if (demoVideo.muted) restartWithAudio();
+          else if (demoVideo.paused) continueVideo();
         });
-        demoVideo.addEventListener('click', restartWithAudio);
+        demoVideo.addEventListener('click', () => {
+          if (demoVideo.muted) restartWithAudio();
+          else if (demoVideo.paused) continueVideo();
+          else {
+            demoVideo.pause();
+            showPausedPrompt();
+          }
+        });
         demoVideo.addEventListener('volumechange', () => {
           if (!demoVideo.muted) hidePrompt();
         });
@@ -186,6 +202,9 @@
             audioPrompt.innerHTML = '🔊 TOQUE PARA<br />ASSISTIR COM ÁUDIO';
             audioPrompt.classList.remove('is-hidden');
           } else hidePrompt();
+        });
+        demoVideo.addEventListener('pause', () => {
+          if (!demoVideo.ended && !demoVideo.muted) showPausedPrompt();
         });
         demoVideo.play().catch(() => {});
       }
