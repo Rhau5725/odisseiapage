@@ -102,7 +102,9 @@
     <style id="odisseia-single-offer">
       .single-offer-card { width: min(680px, 100%); margin: 0 auto; }
       .single-offer-card h3 { max-width: 520px; }
-      .single-offer-card .offer-logo { display: block; width: min(100%, 420px); height: auto; margin: 12px auto 8px; }
+      .single-offer-card .offer-logo-wrap { position: relative; width: min(100%, 420px); margin: 12px auto 8px; }
+      .single-offer-card .offer-logo { display: block; width: 100%; height: auto; margin: 0; }
+      .single-offer-card .offer-logo-number { position: absolute; left: 27%; top: 59.5%; width: 14.5%; padding: .01em .02em; overflow: hidden; background: #111; color: #ff7800; font: 700 italic clamp(1.5rem, 6vw, 2.2rem)/.9 'Space Grotesk', sans-serif; letter-spacing: -.1em; white-space: nowrap; text-shadow: 1px 2px 0 rgba(0,0,0,.5); }
       .single-offer-card .price-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .vip-bonus-section .section-title p { display: block !important; color: #c2cecf; }
       .vip-free-badge { display: inline-flex; align-items: center; margin: 14px 16px 0; padding: 5px 8px; border-radius: 999px; background: #fff0e7; color: var(--orange); font-size: .61rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
@@ -277,7 +279,7 @@
       const whyOdisseiaLabel = document.querySelector('#vip .eyebrow');
       if (whyOdisseiaLabel) whyOdisseiaLabel.textContent = 'Por que escolher a Odisseia';
       const heroHeadline = document.querySelector('.hero h1');
-      if (heroHeadline) heroHeadline.innerHTML = 'Odisseia: <span>+24 Ferramentas para Motociclistas em um Só Lugar!</span>';
+      if (heroHeadline) heroHeadline.innerHTML = 'Odisseia: <span>+20 Ferramentas para Motociclistas em um Só Lugar!</span>';
       document.querySelector('.hero > .eyebrow')?.remove();
     </script>
     <script>
@@ -311,12 +313,12 @@
         pricing.querySelector('.pricing-grid').innerHTML = `
           <article class="price-card premium single-offer-card">
             <span class="price-badge">Odisseia completo</span>
-            <h3>ODISSEIA — +24 FERRAMENTAS PARA MOTOCICLISTAS</h3>
-            <img class="offer-logo" src="assets/odisseia-oferta.png" alt="Odisseia — +24 ferramentas para motociclistas">
+            <h3>ODISSEIA — +20 FERRAMENTAS PARA MOTOCICLISTAS</h3>
+            <div class="offer-logo-wrap"><img class="offer-logo" src="assets/odisseia-oferta.png" alt="Odisseia — +20 ferramentas para motociclistas"><span class="offer-logo-number" aria-hidden="true">+20</span></div>
             <div class="price">R$ 27<small>,90</small></div>
             <p class="pay-note">Pagamento único. Sem mensalidades.</p>
             <ul class="price-list">
-              <li><i data-lucide="check" width="15"></i>Acesso às 24 ferramentas</li>
+              <li><i data-lucide="check" width="15"></i>Acesso às 20 ferramentas</li>
               <li><i data-lucide="check" width="15"></i>6 bônus gratuitos inclusos</li>
               <li><i data-lucide="check" width="15"></i>Pagamento único</li>
               <li><i data-lucide="check" width="15"></i>Sem mensalidades</li>
@@ -341,7 +343,7 @@
       if (faqItems[0]) faqItems[0].querySelector('p').textContent = 'Não. O Odisseia tem pagamento único de R$ 27,90 e não possui mensalidades.';
       if (faqItems[2]) {
         faqItems[2].querySelector('summary').firstChild.textContent = 'O que está incluído na compra?';
-        faqItems[2].querySelector('p').textContent = 'Você recebe acesso às 24 ferramentas do Odisseia e aos 6 bônus gratuitos inclusos.';
+        faqItems[2].querySelector('p').textContent = 'Você recebe acesso às 20 ferramentas do Odisseia e aos 6 bônus gratuitos inclusos.';
       }
       document.querySelectorAll('#por-dentro .demo-tab').forEach((tab) => {
         if (['Premium', 'Completo'].includes(tab.textContent.trim())) tab.textContent = 'Recursos avançados';
@@ -349,11 +351,11 @@
       const heroCta = document.querySelector('.hero-actions .btn');
       if (heroCta?.firstChild) heroCta.firstChild.textContent = 'Quero conhecer a oferta ';
       document.querySelectorAll('#encontra h3, #encontra p').forEach((node) => {
-        node.textContent = node.textContent.replaceAll('Ferramentas Premium', '24 ferramentas').replaceAll('Premium', 'Odisseia');
+        node.textContent = node.textContent.replaceAll('Ferramentas Premium', '20 ferramentas').replaceAll('Premium', 'Odisseia');
       });
       document.querySelectorAll('.why-item').forEach((item) => {
         if (item.querySelector('.why-number')?.textContent === '04') {
-          item.querySelector('h3').textContent = '24 ferramentas em um só lugar';
+          item.querySelector('h3').textContent = '20 ferramentas em um só lugar';
           item.querySelector('p').textContent = 'Tudo em uma experiência única para organizar seus rolês e viagens.';
         }
       });
