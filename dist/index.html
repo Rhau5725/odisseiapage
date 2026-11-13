@@ -165,12 +165,9 @@
       const demoVideo = document.querySelector('.demo-video');
       const audioPrompt = document.querySelector('[data-video-audio]');
       if (demoVideo) {
-        const showPausedPrompt = () => {
-          audioPrompt.innerHTML = '⏸ PAUSADO<br /><small>TOQUE PARA CONTINUAR</small>';
-          audioPrompt.classList.remove('is-hidden');
-        };
         const hidePrompt = () => audioPrompt?.classList.add('is-hidden');
-        const startWithAudio = () => {
+        const restartWithAudio = () => {
+          demoVideo.currentTime = 0;
           demoVideo.muted = false;
           demoVideo.volume = 1;
           hidePrompt();
@@ -178,17 +175,11 @@
         };
         audioPrompt?.addEventListener('click', (event) => {
           event.stopPropagation();
-          if (demoVideo.muted) startWithAudio();
-          else if (demoVideo.paused) demoVideo.play().catch(() => {});
-          else { demoVideo.pause(); showPausedPrompt(); }
+          restartWithAudio();
         });
-        demoVideo.addEventListener('click', () => {
-          if (demoVideo.muted) startWithAudio();
-          else if (demoVideo.paused) demoVideo.play().catch(() => {});
-          else { demoVideo.pause(); showPausedPrompt(); }
-        });
+        demoVideo.addEventListener('click', restartWithAudio);
         demoVideo.addEventListener('volumechange', () => {
-          if (!demoVideo.muted && !demoVideo.paused) hidePrompt();
+          if (!demoVideo.muted) hidePrompt();
         });
         demoVideo.addEventListener('play', () => {
           if (demoVideo.muted) {
@@ -196,7 +187,6 @@
             audioPrompt.classList.remove('is-hidden');
           } else hidePrompt();
         });
-        demoVideo.addEventListener('pause', () => { if (!demoVideo.ended) showPausedPrompt(); });
         demoVideo.play().catch(() => {});
       }
     </script>
