@@ -26,7 +26,7 @@
       .video-frame { aspect-ratio: 9 / 16; display: block; background: #101518; }
       .demo-video { display: block; width: 100%; height: 100%; border-radius: 14px; object-fit: cover; background: #101518; }
       .video-frame::after { display: none; }
-      .video-audio-prompt { position: absolute; left: 50%; bottom: 26px; z-index: 2; transform: translateX(-50%); width: min(92%, 250px); padding: 10px 14px; border-radius: 13px; background: #f8c43c; color: #0d1719; font-size: .72rem; font-weight: 800; line-height: 1.15; letter-spacing: .03em; box-shadow: 0 7px 17px rgba(0,0,0,.22); transition: opacity .2s, transform .2s; }
+      .video-audio-prompt { position: absolute; left: 50%; bottom: 26px; z-index: 2; transform: translateX(-50%); width: min(92%, 250px); padding: 10px 14px; border-radius: 13px; background: var(--orange-2); color: #fff; font-size: .72rem; font-weight: 800; line-height: 1.15; letter-spacing: .03em; box-shadow: 0 7px 17px rgba(0,0,0,.22); transition: opacity .2s, transform .2s; }
       .video-audio-prompt:hover { transform: translateX(-50%) translateY(-2px); }
       .video-audio-prompt.is-hidden { opacity: 0; pointer-events: none; }
       @media (max-width: 600px) {
@@ -122,7 +122,7 @@
   </head>
   <body>
     <div class="topbar">Pagamento único · acesso conforme as condições informadas na compra · sem mensalidades</div>
-    <header id="inicio"><nav class="nav"><div class="container nav-inner"><a class="logo" href="#inicio" aria-label="ODISSEIA início"><span class="logo-mark">✦</span> ODISSEIA</a><div class="nav-links"><a href="#encontra">O que você encontra</a><a href="#por-dentro">Por dentro</a><a href="#planos">Planos</a></div><a class="btn" href="#planos">Ver planos <i data-lucide="arrow-down" width="15"></i></a></div></nav><div class="container hero"><span class="eyebrow">Para quem vive sobre duas rodas 🏍️</span><h1>Descubra encontros de moto, planeje suas viagens e tenha tudo <span>organizado em um só lugar.</span></h1><p class="hero-copy">Conheça o Odisseia: uma plataforma criada para motociclistas que gostam de explorar novos destinos, participar de encontros e aproveitar cada quilômetro da estrada.</p><div class="hero-actions"><a class="btn" href="#planos" data-track="hero_plans">Quero conhecer os planos <i data-lucide="arrow-right" width="17"></i></a></div><div class="hero-video" id="vsl"><div class="video-frame" aria-label="Vídeo do Odisseia rodando automaticamente"><video class="demo-video" autoplay muted loop controls playsinline preload="auto"><source src="assets/odisseia-video.mp4" type="video/mp4" />Seu navegador não suporta a reprodução de vídeo.</video><button class="video-audio-prompt" type="button" data-video-audio aria-label="Reiniciar o vídeo com áudio">🔊 TOQUE PARA<br />ASSISTIR COM ÁUDIO</button></div></div><div class="video-cta"><div style="color:var(--muted);font-size:.84rem;margin-bottom:13px">Acesso por pagamento único. Sem mensalidades.</div><a class="btn" href="#planos" data-track="vsl_plans">Quero conhecer os planos <i data-lucide="arrow-down" width="16"></i></a></div></div></header>
+    <header id="inicio"><nav class="nav"><div class="container nav-inner"><a class="logo" href="#inicio" aria-label="ODISSEIA início"><span class="logo-mark">✦</span> ODISSEIA</a><div class="nav-links"><a href="#encontra">O que você encontra</a><a href="#por-dentro">Por dentro</a><a href="#planos">Planos</a></div><a class="btn" href="#planos">Ver planos <i data-lucide="arrow-down" width="15"></i></a></div></nav><div class="container hero"><span class="eyebrow">Para quem vive sobre duas rodas 🏍️</span><h1>Descubra encontros de moto, planeje suas viagens e tenha tudo <span>organizado em um só lugar.</span></h1><p class="hero-copy">Conheça o Odisseia: uma plataforma criada para motociclistas que gostam de explorar novos destinos, participar de encontros e aproveitar cada quilômetro da estrada.</p><div class="hero-actions"><a class="btn" href="#planos" data-track="hero_plans">Quero conhecer os planos <i data-lucide="arrow-right" width="17"></i></a></div><div class="hero-video" id="vsl"><div class="video-frame" aria-label="Vídeo do Odisseia rodando automaticamente"><video class="demo-video" autoplay muted loop playsinline preload="auto"><source src="assets/odisseia-video.mp4" type="video/mp4" />Seu navegador não suporta a reprodução de vídeo.</video><button class="video-audio-prompt" type="button" data-video-audio aria-label="Reiniciar o vídeo com áudio">🔊 TOQUE PARA<br />ASSISTIR COM ÁUDIO</button></div></div><div class="video-cta"><div style="color:var(--muted);font-size:.84rem;margin-bottom:13px">Acesso por pagamento único. Sem mensalidades.</div><a class="btn" href="#planos" data-track="vsl_plans">Quero conhecer os planos <i data-lucide="arrow-down" width="16"></i></a></div></div></header>
     <main><div class="intro-strip">Uma plataforma para <strong>eventos, viagens, moto e organização</strong> — sem depender de várias ferramentas.</div>
       <section class="section category-section" id="encontra"><div class="container"><div class="section-title"><span class="eyebrow">O que você encontra</span><h2>Tudo para aproveitar melhor seus passeios e viagens de moto.</h2><p>O Odisseia reúne o que faz parte da sua rotina sobre duas rodas em uma experiência simples de entender.</p></div><div class="category-grid"><article class="category-card"><div class="icon"><i data-lucide="calendar-days"></i></div><h3>Eventos e encontros</h3><p>Descubra encontros de motociclistas por localização, cidade e data.</p></article><article class="category-card"><div class="icon"><i data-lucide="map"></i></div><h3>Viagens e destinos</h3><p>Explore roteiros, organize percursos e prepare sua próxima aventura.</p></article><article class="category-card"><div class="icon"><i data-lucide="wrench"></i></div><h3>Minha moto</h3><p>Registre abastecimentos, acompanhe o consumo e organize manutenções.</p></article><article class="category-card"><div class="icon"><i data-lucide="sparkles"></i></div><h3>Ferramentas Premium</h3><p>Tenha recursos avançados para planejar, dividir e acompanhar seus rolês.</p></article></div></div></section>
       <section class="section demo-section" id="por-dentro"><div class="container"><div class="section-title"><span class="eyebrow">Veja o sistema por dentro</span><h2>Veja o que você poderá fazer dentro do Odisseia.</h2><p>Telas demonstrativas para visualizar a experiência. Os dados abaixo são ilustrativos e não representam uma aplicação já conectada.</p></div><div class="demo-wrap"><div class="demo-tabs" role="tablist" aria-label="Demonstração do sistema"><button class="demo-tab active" role="tab" aria-selected="true" data-tab="radar">Radar de eventos</button><button class="demo-tab" role="tab" aria-selected="false" data-tab="viagem">Planejador de viagens</button><button class="demo-tab" role="tab" aria-selected="false" data-tab="combustivel">Calculadora</button><button class="demo-tab" role="tab" aria-selected="false" data-tab="moto">Controle da moto</button><button class="demo-tab" role="tab" aria-selected="false" data-tab="premium">Premium</button></div>
@@ -144,23 +144,38 @@
       const demoVideo = document.querySelector('.demo-video');
       const audioPrompt = document.querySelector('[data-video-audio]');
       if (demoVideo) {
-        const restartWithAudio = () => {
-          demoVideo.currentTime = 0;
+        const showPausedPrompt = () => {
+          audioPrompt.innerHTML = '⏸ PAUSADO<br /><small>TOQUE PARA CONTINUAR</small>';
+          audioPrompt.classList.remove('is-hidden');
+        };
+        const hidePrompt = () => audioPrompt?.classList.add('is-hidden');
+        const startWithAudio = () => {
           demoVideo.muted = false;
           demoVideo.volume = 1;
-          audioPrompt?.classList.add('is-hidden');
+          hidePrompt();
           demoVideo.play().catch(() => {});
         };
         audioPrompt?.addEventListener('click', (event) => {
           event.stopPropagation();
-          restartWithAudio();
+          if (demoVideo.muted) startWithAudio();
+          else if (demoVideo.paused) demoVideo.play().catch(() => {});
+          else { demoVideo.pause(); showPausedPrompt(); }
         });
-        demoVideo.addEventListener('click', (event) => {
-          if (event.offsetY < demoVideo.clientHeight - 58) restartWithAudio();
+        demoVideo.addEventListener('click', () => {
+          if (demoVideo.muted) startWithAudio();
+          else if (demoVideo.paused) demoVideo.play().catch(() => {});
+          else { demoVideo.pause(); showPausedPrompt(); }
         });
         demoVideo.addEventListener('volumechange', () => {
-          if (!demoVideo.muted) audioPrompt?.classList.add('is-hidden');
+          if (!demoVideo.muted && !demoVideo.paused) hidePrompt();
         });
+        demoVideo.addEventListener('play', () => {
+          if (demoVideo.muted) {
+            audioPrompt.innerHTML = '🔊 TOQUE PARA<br />ASSISTIR COM ÁUDIO';
+            audioPrompt.classList.remove('is-hidden');
+          } else hidePrompt();
+        });
+        demoVideo.addEventListener('pause', () => { if (!demoVideo.ended) showPausedPrompt(); });
         demoVideo.play().catch(() => {});
       }
     </script>
